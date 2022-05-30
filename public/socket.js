@@ -16,44 +16,46 @@ const numberSnack = document.querySelector('#numberSnack');
 const snack = document.querySelector('#snack');
 const table = document.querySelector('#address');
 const comment = document.querySelector('#comment');
+const checkbox = document.querySelector('#checkbox');
 
-
-btnPurchase.addEventListener("click", function(e) {
+let sendData = function(e){
     this.style.backgroundColor = "red";
-        //prevent form submission refreshing page
-    e.preventDefault();
-    // send input value to server as type 'message'
-    // socket.emit("name", `Nome Cliente: ${username.value} \n Ordine birre: ${beers.textContent} \n Numero:${numberBeer.textContent} \n Ordine Snack: ${snack.textContent} \n Numero snack: ${numberSnack.textContent} \n Numero Tavolo: ${table.value} \n Commento: ${comment.value}`);
-    let data = JSON.stringify({
-        username: `${username.value}`, 
-        beers: `${beers.textContent}`,
-        numberBeer: `${numberBeer.textContent}`,
-        snack: `${snack.textContent}`,
-        numberSnack:`${numberSnack.textContent}`,
-        table:`${table.value}`,
-        comment:`${comment.value}`
-    })
-    console.log(data);
-    socket.emit("name" , data)
+    //prevent form submission refreshing page
+e.preventDefault();
 
-    // reset input value
-    // username.value = "";
-    console.log(beers.textContent);
-});
+let data = JSON.stringify({
+    username: `${username.value}`, 
+    beers: `${beers.textContent}`,
+    numberBeer: `${numberBeer.textContent}`,
+    snack: `${snack.textContent}`,
+    numberSnack:`${numberSnack.textContent}`,
+    table:`${table.value}`,
+    comment:`${comment.value}`,
+    isChecked:`${checkbox.value}`
+})
+console.log(data);
+socket.emit("name" , data)
+// reset input value
+// username.value = "";
 
-// socket.emit("hello", "world");
-// handle sending message to server & input reset
+console.log(checkbox.value);
+}
 
- btnPurchase.addEventListener("click", sendMessage(username));
- function sendMessage() {
-   
-     console.log('test ciao');
-    // prevent form submission refreshing page
-    // e.preventDefault();
-    // // send input value to server as type 'message'
-    // socket.emit("message", username.value);
+btnPurchase.addEventListener("click", sendData);
+// var checkboxed = document.querySelector("input[name=checkbox]");
+$( "#checkbox" ).click(function() {
+    if (this.checked) {
+        console.log("Checkbox is checked..");
+      } else {
+        console.log("Checkbox is not checked..");
+      }
+      // let change = new Event('change');
+      // this.dispatchEvent(change);
+  });
+//   $(document).on("change", "input[name='checkbox']", function () {
+//     alert("FECK");
+//     if (this.checked) {}
+// });
 
-    // // reset input value
-    // username.value = "";
-  }
+
 

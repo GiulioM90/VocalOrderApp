@@ -9,7 +9,7 @@ const io = require("socket.io")(http);
 
 app.use(express.static('public'));
 app.get('/', (req,res)=> {
-   res.sendFile(path.join(__dirname,'public','alan-course-initial.html'))
+   res.sendFile(path.join(__dirname,'public','index.html'))
 })
 io.on("connection", function(socket) {
    console.log(socket.id);

@@ -22,6 +22,15 @@ let alanBtnInstance = alanBtn({
         }else if(commandData.command === "addComment"){
             document.getElementById('comment').value = commandData.item;
             // setName(commandData.name)
+        }else if(commandData.command === "addCheckforSendOrder"){
+            // document.getElementById("checkbox").value = commandData.item;
+            // document.getElementById("checkbox").setAttribute("value", true);
+            // $('#checkbox').prop('checked', true);
+
+            $('#checkbox').click()
+
+            // document.getElementById("checkbox").checked = true;
+            // setName(commandData.name)
         }
 
 
