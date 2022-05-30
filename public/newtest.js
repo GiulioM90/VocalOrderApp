@@ -1,6 +1,6 @@
 
 let alanBtnInstance = alanBtn({
-    key: "f2cba9987d2a14aa7cb6e10679ab84552e956eca572e1d8b807a3e2338fdd0dc/stage",
+    key: `${config.MY_KEY}`,
     onCommand: function (commandData) {
        if (commandData.command === "highlight") {
        //call client code that will react on the received command
@@ -69,3 +69,4 @@ let alanBtnInstance = alanBtn({
           el.classList.add('highlighted');               
        }
     };
+
