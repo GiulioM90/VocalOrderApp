@@ -2,10 +2,11 @@
    <head>
       <meta charset="UTF-8">
       <title>Beer Vocal Order</title>
-      <link rel="stylesheet" href="../assets/styles.css">
+      <link rel="stylesheet" href="./assets/styles.css">
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@300&display=swap" rel="stylesheet">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
    </head>
    <body class="bg-dark container-fluid">
       <div class="row">
@@ -20,15 +21,15 @@
                <div class="coffee-deck">
                   <div class="tile" id="budweiser" onclick="setBeer('budweiser')">
                      <div class="item-title text-warning text-center mb-3">Budweiser</div>
-                     <img src="../assets/Budweiser_Genuine_logo.svg" height="150px" />
+                     <img src="./assets/Budweiser_Genuine_logo.svg" height="150px" />
                   </div>
-                  <div  class="tile" id="alpine-beer" onclick="setBeer('alpine-beer')">
-                     <div class="item-title text-warning text-center  mb-3">Alpine beer</div>
-                     <img class="bg-white" src="../assets/San_Miguel_logo_colour.svg" height="150px"/>
+                  <div  class="tile" id="san-miguel" onclick="setBeer('san-miguel')">
+                     <div class="item-title text-warning text-center  mb-3">San Miguel</div>
+                     <img class="bg-white" src="./assets/San_Miguel_logo_colour.svg" height="150px"/>
                   </div>
                   <div class="tile" id="heiniken-beer" onclick="setBeer('heiniken-beer')" >
                      <div class="item-title text-warning text-center  mb-3">Heiniken</div>
-                     <img src="../assets/Heineken_logo.svg" height="150px"/>
+                     <img src="./assets/Heineken_logo.svg" height="150px"/>
                   </div>
                </div>
                <hr class="bg-white">
@@ -36,15 +37,15 @@
                <div class="desserts-deck">
                   <div  class="tile" id="chips" onclick="setSnack('chips')" >
                      <div class="item-title text-warning text-center  mb-3">Chips</div>
-                     <img src="../assets/chips.jpg" height="150px" />
+                     <img src="./assets/chips.jpg" height="150px" />
                   </div>
                   <div  class="tile" id="brownie" onclick="setSnack('brownie')">
                      <div class="item-title text-warning text-center  mb-3">Brownie</div>
-                     <img src="../assets/dessert-brownie.jpg" height="150px"/>
+                     <img src="./assets/dessert-brownie.jpg" height="150px"/>
                   </div>
                   <div class="tile" id="peanuts" onclick="setSnack('peanuts')">
                      <div class="item-title text-warning text-center  mb-3">Peanuts</div>
-                     <img src="../assets/peanuts1.jpg" height="150px"/>
+                     <img src="./assets/peanuts1.jpg" height="150px"/>
                   </div>
                </div>
             </div>
@@ -54,8 +55,14 @@
                <div class="h2forms">Checkout</div>
                <h3 class="h3forms">Your Order</h3>
                <div id="order">
-                  <div id="beer" class="item-title"></div>
-                  <div id="snack" class="item-title"></div>
+                  <div>
+                     <span id="numberBeer"> </span>
+                     <div id="beer" class="item-title"></div>
+                  </div>
+                  <div>
+                     <span id="numberSnack"> </span>
+                     <div id="snack" class="item-title"></div>
+                  </div>
                </div>
                <hr >
                <h3 class="h3forms mb-3 fs-3">Your Info</h3>
@@ -66,7 +73,7 @@
                         <input type="text" id="name" name="name" class="form-field">
                      </div>
                      <div class="col-12 d-flex flex-column">
-                        <label for="address" class="form-label fs-2">Address</label>
+                        <label for="address" class="form-label fs-2">Table</label>
                         <input type="text" id="address" name="address" class="form-field">
                      </div>
                      <div class="col-12 d-flex flex-column">
@@ -74,7 +81,8 @@
                         <textarea id="comment" form="usrform" class="form-field"></textarea>
                      </div>
                   </div>
-                  <input type="button" value="Purchase" class="form-btn" onclick="sendData();">
+                  <!-- <input id="btnPurchase" type="button" value="Purchase" class="form-btn" onclick="sendData();"> -->
+                  <input id="btnPurchase" type="button" value="Purchase" class="form-btn">
                </form>
             </div>
          </div>
@@ -84,9 +92,13 @@
         
       </div>
       <div class="alan-btn"></div>
+      <!-- <script type="module" src="./socket.js"></script> -->
+      <script  src="./socket.js"></script>
+      <script>
+      </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script type="text/javascript"
       src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
-      <script src="newtest.js"></script>
+      <script src="./newtest.js"></script>
    </body>
 </html>

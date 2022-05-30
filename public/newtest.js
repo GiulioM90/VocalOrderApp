@@ -1,5 +1,5 @@
 
-var alanBtnInstance = alanBtn({
+let alanBtnInstance = alanBtn({
     key: "f2cba9987d2a14aa7cb6e10679ab84552e956eca572e1d8b807a3e2338fdd0dc/stage",
     onCommand: function (commandData) {
        if (commandData.command === "highlight") {
@@ -7,7 +7,11 @@ var alanBtnInstance = alanBtn({
        highlightProduct(commandData.item);
        }else if(commandData.command === 'addBeer'){
             setBeer(commandData.item);
-       }else if(commandData.command === 'addSnack'){
+       }else if(commandData.command === 'addNumberBeer'){
+        document.getElementById('numberBeer').innerHTML = commandData.item;
+        }else if(commandData.command === 'addNumberSnack'){
+            document.getElementById('numberSnack').innerHTML = commandData.item;
+        }else if(commandData.command === 'addSnack'){
             setSnack(commandData.item);
         }else if(commandData.command === "addName"){
             document.getElementById('name').value = commandData.name;
